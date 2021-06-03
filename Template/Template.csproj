@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net471</TargetFramework>
+    <Platforms>x86</Platforms>
+    <DebugType>full</DebugType>
+    <LangVersion>latest</LangVersion>
+    <OutputPath>Output\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Lib.Harmony" Version="1.2.0.1" />
+    <Reference Include="DuckGame">
+      <HintPath>..\ThirdParty\DuckGame.exe</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy /Y &quot;$(OutDir)\$(TargetName).dll&quot; &quot;$(ProjectDir)\..\$(ProjectName).dll&quot;&#xD;&#xA;copy /Y &quot;$(OutDir)\$(TargetName).pdb&quot; &quot;$(ProjectDir)\..\$(ProjectName).pdb&quot;" />
+  </Target>
+
+</Project>
