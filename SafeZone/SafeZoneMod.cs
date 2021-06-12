@@ -1,14 +1,15 @@
-﻿using Harmony;
+﻿using DuckGame;
+using Harmony;
 using System;
 using System.IO;
 using System.Reflection;
 
-namespace Template
+namespace SafeZone
 {
-	public class TemplateMod : DuckGame.DisabledMod
+	public class SafeZoneMod : DuckGame.DisabledMod
 	{
 
-		public TemplateMod()
+		public SafeZoneMod()
 		{
 #if DEBUG
 			System.Diagnostics.Debugger.Launch();
@@ -16,7 +17,7 @@ namespace Template
 			AppDomain.CurrentDomain.AssemblyResolve += ModResolve;
 		}
 
-		~TemplateMod()
+		~SafeZoneMod()
 		{
 			AppDomain.CurrentDomain.AssemblyResolve -= ModResolve;
 		}
@@ -24,6 +25,33 @@ namespace Template
 		protected override void OnPreInitialize()
 		{
 			HarmonyInstance.Create( GetType().Namespace ).PatchAll( Assembly.GetExecutingAssembly() );
+
+			TeamSelect2.matchSettings.Add(new MatchSetting()
+			{
+				max = 999,
+				min = 0,
+				value = 30,
+				name = "Time Limit",
+				id = "timelimit",
+			});
+
+			TeamSelect2.matchSettings.Add(new MatchSetting()
+			{
+				max = 999,
+				min = 0,
+				value = 10,
+				name = "Zone Start",
+				id = "zonestart",
+			});
+
+			TeamSelect2.matchSettings.Add(new MatchSetting()
+			{
+				max = 9999,
+				min = 0,
+				value = 200,
+				name = "Zone Size",
+				id = "zonesize",
+			});
 		}
 
 		private Assembly ModResolve( object sender , ResolveEventArgs args )

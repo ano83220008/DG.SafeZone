@@ -339,3 +339,18 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 ThirdParty/DuckGame.exe
+SafeZone/Output/net471/0Harmony.dll
+SafeZone.dll
+SafeZone/Output/net471/CrashWindow.exe
+SafeZone/Output/net471/CrashWindow.exe.config
+SafeZone/Output/net471/DGInput.dll
+SafeZone/Output/net471/DGSteam.dll
+SafeZone/Output/net471/DuckGame.exe
+SafeZone/Output/net471/DuckGame.exe.config
+SafeZone/Output/net471/DuckGame.xml
+SafeZone/Output/net471/NAudio.dll
+SafeZone/Output/net471/NAudio.xml
+SafeZone/Output/net471/NVorbis.dll
+SafeZone/Output/net471/NVorbis.NAudioSupport.dll
+SafeZone/SafeZone.sln
+mod.conf
